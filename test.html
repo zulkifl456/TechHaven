@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Haven</title>
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            font-family: 'Poppins', Arial, sans-serif;
+            color: #4A4A4A;
+            background-color: #F9F9F9;
+            scroll-behavior: smooth;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* Navbar */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        nav .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: flex;
+        }
+
+        nav .logo span {
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        nav .logo span:nth-child(1) { color: #d80e80; }
+        nav .logo span:nth-child(2) { color: #d80e90; }
+        nav .logo span:nth-child(3) { color: #d80f10; }
+        nav .logo span:nth-child(4) { color: #d80f20; }
+        nav .logo span:nth-child(5) { color: #d80f30; }
+        nav .logo span:nth-child(6) { color: #d80f40; }
+        nav .logo span:nth-child(7) { color: #d80f50; }
+        nav .logo span:nth-child(8) { color: #d80f60; }
+        nav .logo span:nth-child(9) { color: #d80f70; }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #4A4A4A;
+            font-weight: 500;
+            transition: color 0.3s, border-bottom 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #d80e80;
+            border-bottom: 2px solid #d80e80;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: url('1733159742942.jpg') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+            z-index: -1;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin: 0;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #d80e80;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-top: 10px;
+            color: #FFFFFF;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero button {
+            margin-top: 30px;
+            padding: 15px 40px;
+            background: #d80e80;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border-radius: 30px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .hero button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Services Section */
+        #services {
+            padding: 80px 20px;
+            text-align: center;
+            background: #f5f5f5;
+        }
+
+        #services h2 {
+            color: #d80e80;
+            font-size: 2.8rem;
+            margin-bottom: 30px;
+        }
+
+        .service-cards {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 300px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .service-card h3 {
+            margin: 15px 0;
+            color: #333;
+        }
+
+        .service-card p {
+            color: #666;
+        }
+
+        /* Why Choose Us Section */
+        #why-choose-us {
+            padding: 80px 20px;
+            text-align: center;
+            background: #ffffff;
+        }
+
+        #why-choose-us h2 {
+            color: #d80e80;
+            font-size: 2.8rem;
+            margin-bottom: 30px;
+        }
+
+        #why-choose-us ul {
+            list-style: none;
+            padding: 0;
+            font-size: 1.2rem;
+            color: #555;
+        }
+
+        #why-choose-us ul li {
+            margin: 15px 0;
+        }
+
+        /* Contact Section */
+        #contact {
+            padding: 80px 20px;
+            text-align: center;
+            background: #FFFFFF;
+        }
+
+        #contact h2 {
+            color: #d80e80;
+            font-size: 2.8rem;
+            margin-bottom: 30px;
+        }
+
+        #contact form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        #contact input, #contact textarea, #contact button {
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 1rem;
+            width: 100%;
+        }
+
+        #contact textarea {
+            resize: none;
+            height: 120px;
+        }
+
+        #contact button {
+            background: #d80e80;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        #contact button:hover {
+            background: #b00d70;
+        }
+
+        /* Footer */
+        footer {
+            padding: 20px 0;
+            text-align: center;
+            background: #222;
+            color: white;
+            font-size: 1rem;
+        }
+
+        footer a {
+            color: #d80e80;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #d80e80;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50%;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: none;
+        }
+
+        .back-to-top.show {
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <span>T</span><span>e</span><span>c</span><span>h</span>
+            <span>H</span><span>a</span><span>v</span><span>e</span>
+            <span>n</span>
+        </div>
+        <ul>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#why-choose-us">Why Choose Us</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Welcome to Tech Haven</h1>
+        <p>Innovative Technology Solutions for Your Business</p>
+        <button>Get Started</button>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <h2>Our Services</h2>
+        <div class="service-cards">
+            <div class="service-card">
+                <img src="webdev.png" alt="Service 1">
+                <h3>Web Development</h3>
+                <p>Building modern, responsive websites tailored to your needs.</p>
+            </div>
+            <div class="service-card">
+                <img src="softsol.png" alt="Service 2">
+                <h3>App Development</h3>
+                <p>Creating powerful and user-friendly mobile apps.</p>
+            </div>
+            <div class="service-card">
+                <img src="cloud integration.png" alt="Service 3">
+                <h3>Cloud Services</h3>
+                <p>Helping your business scale with secure cloud solutions.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section id="why-choose-us">
+        <h2>Why Choose Us</h2>
+        <ul>
+            <li>Proven track record of delivering quality tech solutions.</li>
+            <li>Dedicated support team available 24/7.</li>
+            <li>Customized solutions tailored to your business needs.</li>
+            <li>Competitive pricing with no hidden fees.</li>
+            <li>Innovative approach to staying ahead in technology.</li>
+        </ul>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <form action="#">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Tech Haven | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="back-to-top">&uarr;</button>
+
+    <script>
+        const backToTopButton = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
